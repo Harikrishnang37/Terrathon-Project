@@ -20,7 +20,7 @@ app.post(".products/add", (req,res) => {
 
     console.log("Product detail:", productDetail);
 
-    Products.create({username:"user1",userid: 1,productname: "prod1", productid: 1, price: 250, rating: 3,ImgURL: "hello.com"}, (err, data) =>{
+    Products.create(productDetail, (err, data) =>{
         if(err){
             res.status(500).send(err.message);
         }
