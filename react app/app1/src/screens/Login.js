@@ -9,12 +9,12 @@ export default function Login() {
           <div className="loginbox">
             <img src="avtaar.jpg" className="avtaar" />
             <h1>Login Here</h1>
-            <form>
+            <form >
               <p>Username</p>
               <input type="text" name placeholder="Enter Username" />
               <p>Password</p>
               <input type="password" name placeholder="Enter Password" />
-              <input type="submit" name defaultValue="Login" />
+              <input type="button" name defaultValue="Login" onClick={test}/>
               <a href="#">Don't Have an Account</a>
             </form>
           </div>
@@ -23,6 +23,8 @@ export default function Login() {
 }
 
 function test(){
+
+  console.log("hello");
 
 axios.post('/products/add', {username:"user1",userid: 1,productname: "prod1", productid: 1, price: 250, rating: 3,ImgURL: "hello.com"});
 }

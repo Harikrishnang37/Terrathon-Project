@@ -4,7 +4,7 @@ const mng = require("mongoose");
 const Products = require("./Products");
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 const connection_url = "mongodb+srv://harikrishnan:fordb@cluster0.mkn4pum.mongodb.net/Cluster0?retryWrites=true&w=majority"
 
@@ -15,7 +15,7 @@ app.use(cors());
 
 app.get("/", (req,res) => res.status(200).send("Home Page"));
 
-app.post(".products/add", (req,res) => {
+app.post("/products/add", (req,res) => {
     const productDetail = req.body;
 
     console.log("Product detail:", productDetail);
@@ -29,12 +29,8 @@ app.post(".products/add", (req,res) => {
     })
 })
 
-Products.create({username:"user1",userid: 1,productname: "prod1", productid: 1, price: 250, rating: 3,ImgURL: "hello.com"}, (err, data) =>{
-    if(err){
-        res.status(500).send(err.message);
-    }
-    else
-        res.status(201).send(data);
+app.post("/users/add", (req,res) => {
+    // to be completed
 })
 
 app.listen(port, ()=> console.log("listening on port ", port));
