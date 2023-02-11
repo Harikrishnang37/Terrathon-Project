@@ -1,8 +1,18 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import './Home.css'
+import axios from 'axios'
 import Product from './Product';
 
 function Home() {
+
+    useEffect(()=>{
+        const fetchdata = async() =>{
+            const data = await axios.get("/products/get");
+            console.log("products: ", data);
+        };
+        fetchdata();
+    }, []);
+
   return (
     <div className="home">
         <div className='home__container'>
