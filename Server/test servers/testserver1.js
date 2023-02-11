@@ -50,4 +50,10 @@ app.get("/users/verify", (req,res) => {
     //console.log(Products.find());
 })
 
+app.get("/products/get", (req,res) => {
+    
+    Products.find().then(prod => res.json(prod)).catch(err =>res.status(400).json("Error"+err))
+    //console.log(Products.find());
+})
+
 app.listen(port, ()=> console.log("listening on port ", port));

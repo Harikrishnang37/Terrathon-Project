@@ -8,6 +8,7 @@ function Sell() {
   const [productname, setprodname] = useState("");
   const [price, setprice] = useState("");
   const [rating, setrating] = useState("");
+  const [count, setcount] = useState(9);
 
   function handleusername(event)
     {
@@ -33,8 +34,11 @@ function Sell() {
 
     async function handleSubmit(event)
     {
-      axios.post('http://localhost:8000/products/add', {username: username, userid: 4, productname: productname, productid: 1, price: price, rating:rating, ImgURL:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwebneel.com%2Fnature-photography-photos&psig=AOvVaw0_7bIl30JavNVaRVyrSto5&ust=1676173323358000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNiU563GjP0CFQAAAAAdAAAAABAE"});
+
+      axios.post('http://localhost:8000/products/add', {username: username, userid: count, productname: productname, productid: 1, price: price, rating:rating, ImgURL:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwebneel.com%2Fnature-photography-photos&psig=AOvVaw0_7bIl30JavNVaRVyrSto5&ust=1676173323358000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNiU563GjP0CFQAAAAAdAAAAABAE"});
+      setcount(count+1);
       alert("product added");
+
     }
 
 

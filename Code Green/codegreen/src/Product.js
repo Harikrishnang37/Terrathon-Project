@@ -4,7 +4,7 @@ import StarIcon from '@mui/icons-material/Star';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { useStateValue } from './StateProvider';
 
-function Product({title, image, price, rating }) {
+function Product({key, title, image, price, rating }) {
   const [{basket}, dispatch] = useStateValue()
   const addToBasket = () => {
       dispatch({

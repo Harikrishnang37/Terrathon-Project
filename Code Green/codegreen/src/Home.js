@@ -1,14 +1,19 @@
-import React , {useEffect} from 'react'
+import React , {useEffect, useState} from 'react'
 import './Home.css'
 import axios from 'axios'
 import Product from './Product';
 
 function Home() {
 
+    const [products, setProducts] = useState("");
+
     useEffect(()=>{
         const fetchdata = async() =>{
-            const data = await axios.get("/products/get");
+            const pdata = await axios.get("http://localhost:8000/products/get");
+            const data = pdata.data;
             console.log("products: ", data);
+
+            setProducts(data);
         };
         fetchdata();
     }, []);
@@ -40,6 +45,15 @@ function Home() {
                 <Product title="Coco-Peat" price={510.00}
                 image ="https://imgs.search.brave.com/qpeAmRKLnyWQYptbnXg6mX1Jv1jTRx-cNOBVBAjkHg0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly90ZWFt/Z3JlZW4uY28uaW4v/d3AtY29udGVudC91/cGxvYWRzLzIwMjEv/MDgvY29jb3BlYXQu/anBn" rating={4} />
             </div>
+
+            {products && products.map((product) => {
+                return <Product key = {product.productid} title={product.productname} price={product.price}
+                image= "https://www.thedailymeal.com/img/gallery/what-you-probably-didnt-know-about-papayas/l-intro-1667926753.jpg" rating={product.rating}/>
+            }
+            )
+            }
+            
+
         </div>
     </div>
   )
