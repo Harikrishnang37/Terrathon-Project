@@ -3,10 +3,11 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #b5e8cb;
+    background-color: rgb(178, 219, 198);
     position: sticky;
     top: 0;
     z-index: 100;
+
 }
 
 .header__logo 
