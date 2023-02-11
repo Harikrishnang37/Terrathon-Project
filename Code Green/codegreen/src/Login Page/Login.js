@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import './Login.css'
-import axios from "axios";
+import axios from "../axios.js";
+import { Navigate, useNavigate } from "react-router-dom";
 //import useNavigate from 'react-router-dom';
 
 export default function Login() {
 
-  //const navigate = useNavigate()
+  const navigate = useNavigate()
     const [username,setUser]=useState("")
     const [password,setPassword]=useState("")
+
 
     async function handleSubmit(event)
     {   
@@ -35,6 +37,8 @@ export default function Login() {
               if(data[i].username == user_data.name && data[i].password == user_data.password){
                 //navigate
                 console.log("log in successful");
+                //<Navigate to = "/Home" replace = {true}/>
+                navigate("/");
                 flag = true;
               }
              }

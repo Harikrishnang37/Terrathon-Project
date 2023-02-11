@@ -6,6 +6,8 @@ import Checkout from './Checkout';
 import Howto from './Howto';
 import Sell from './Sell';
 import Payment from './Payment';
+import Login from './Login Page/Login';
+
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
       <Router>
       <Header />
         <Routes>
+          <Route path="/login" element = {<Login/>}/>
           <Route path="/checkout" element = {<Checkout/>}/>
           <Route path="/" element = {<Home/>}/>
           <Route path="/howto" element = {<Howto/>}/>
